@@ -29,7 +29,7 @@ Band.init(
       allowNull: false,
     },
   },
-  { sequelize, modelName: "Band", tableName: "band", timestamps: false }
+  { sequelize, modelName: "Band", tableName: "bands", timestamps: false }
 );
 
 // EXPORT

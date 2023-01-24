@@ -13,16 +13,21 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  Set_Time.init({
-    set_time_id: DataTypes.INTEGER,
-    event_id: DataTypes.SMALLINT,
-    stage_id: DataTypes.SMALLINT,
-    band_id: DataTypes.SMALLINT,
-    start_time: DataTypes.DATE,
-    end_time: DataTypes.DATE
-  }, {
-    sequelize,
-    modelName: 'Set_Time',
-  });
+  Set_Time.init(
+    {
+      set_time_id: DataTypes.INTEGER,
+      event_id: DataTypes.SMALLINT,
+      stage_id: DataTypes.SMALLINT,
+      band_id: DataTypes.SMALLINT,
+      start_time: DataTypes.DATE,
+      end_time: DataTypes.DATE,
+    },
+    {
+      sequelize,
+      modelName: "Set_Time",
+      tableName: "set_times",
+      timestamps: false,
+    }
+  );
   return Set_Time;
 };

@@ -13,13 +13,18 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  Stage_Event.init({
-    stage_events_id: DataTypes.INTEGER,
-    stage_id: DataTypes.SMALLINT,
-    event_id: DataTypes.SMALLINT
-  }, {
-    sequelize,
-    modelName: 'Stage_Event',
-  });
+  Stage_Event.init(
+    {
+      stage_events_id: DataTypes.INTEGER,
+      stage_id: DataTypes.SMALLINT,
+      event_id: DataTypes.SMALLINT,
+    },
+    {
+      sequelize,
+      modelName: "Stage_Event",
+      tableName: "stage_events",
+      timestamps: false,
+    }
+  );
   return Stage_Event;
 };

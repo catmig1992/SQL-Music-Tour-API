@@ -13,15 +13,20 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  Event.init({
-    event_id: DataTypes.INTEGER,
-    name: DataTypes.STRING,
-    date: DataTypes.DATE,
-    start_time: DataTypes.DATE,
-    end_time: DataTypes.DATE
-  }, {
-    sequelize,
-    modelName: 'Event',
-  });
+  Event.init(
+    {
+      event_id: DataTypes.INTEGER,
+      name: DataTypes.STRING,
+      date: DataTypes.DATE,
+      start_time: DataTypes.DATE,
+      end_time: DataTypes.DATE,
+    },
+    {
+      sequelize,
+      modelName: "Event",
+      tableName: "events",
+      timestamps: false,
+    }
+  );
   return Event;
 };

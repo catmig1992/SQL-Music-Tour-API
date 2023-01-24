@@ -9,10 +9,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate({ Band }) {
       // band
-      Meet_Greet.belongsTo(Band, {
-        foreignKey: "band_id",
-        as: "band",
-      });
+      // Meet_Greet.belongsTo(Band, {
+      //   foreignKey: "band_id",
+      //   as: "band",
+      // });
     }
   }
   Meet_Greet.init(

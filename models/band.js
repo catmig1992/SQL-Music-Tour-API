@@ -9,10 +9,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate({ MeetGreet }) {
       // meet and greets
-      Band.hasMany(MeetGreet, {
-        foreignKey: "band_id",
-        as: "meet_greets",
-      });
+    //   Band.hasMany(MeetGreet, {
+    //     foreignKey: "band_id",
+    //     as: "meet_greets",
+    //   });
     }
   }
   Band.init(

@@ -1,13 +1,19 @@
 // DEPENDENCIES
 const stages = require("express").Router();
 const db = require("../models");
-// const { Op } = require("sequelize");
+const { Op } = require("sequelize");
 const { Stage } = db;
 
 // FIND ALL STAGES
 stages.get("/", async (req, res) => {
   try {
-    const foundStages = await Stage.findAll();
+    const foundStages = await Stage.findAll({
+      where: {
+        stage_name: {
+          [Op.like]: `%${req.query.stage_name ? req.query.stage_name : ""}%`,
+        },
+      },
+    });
     res.status(200).json(foundStages);
   } catch (error) {
     res.status(500).json(error);
@@ -15,10 +21,10 @@ stages.get("/", async (req, res) => {
 });
 
 // FIND A SPECIFIC STAGES
-stages.get("/:id", async (req, res) => {
+stages.get("/:name", async (req, res) => {
   try {
     const foundStage = await Stage.findOne({
-      where: { stage_id: req.params.id },
+      where: { name: req.params.name },
     });
     res.status(200).json(foundStage);
   } catch (error) {
